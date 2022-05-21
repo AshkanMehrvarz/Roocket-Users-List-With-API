@@ -1,9 +1,10 @@
-import { Container, Image, Text, Row } from "@nextui-org/react";
+import { Container, Image, Text, Row, Progress } from "@nextui-org/react";
 import React from "react";
 
-export default function Hero() {
+export default function Hero({ loading }) {
   return (
-    <Container>
+    <Container style={{ paddingTop: 50 }}>
+      <Progress color='primary' value={loading} />
       <Row
         style={{
           flexDirection: "row-reverse",
