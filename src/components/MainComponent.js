@@ -1,6 +1,6 @@
-import { Text, Progress } from "@nextui-org/react";
 import React from "react";
 import Hero from "./Hero";
+import UsersList from "./UsersList";
 
 export default function MainComponent() {
   const [loading, setLoading] = React.useState(true);
@@ -16,7 +16,5 @@ export default function MainComponent() {
     }, 3000);
   }, []);
 
-  console.log(loadingCount);
-
-  return <div>{loading ? <Hero loading={loadingCount} /> : <h1>main</h1>}</div>;
+  return <div>{loading ? <Hero loading={loadingCount} /> : <UsersList />}</div>;
 }

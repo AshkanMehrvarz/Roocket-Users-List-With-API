@@ -6,10 +6,11 @@ export default function Hero({ loading }) {
     <Container style={{ paddingTop: 50 }}>
       <Progress color='primary' value={loading} />
       <Row
+        fluid
         style={{
           flexDirection: "row-reverse",
           paddingLeft: 100,
-          paddingTop: 100,
+          // paddingTop: 100,
         }}
         justify='space-around'
         align='center'>
