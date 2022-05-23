@@ -1,4 +1,4 @@
-import { Button, Card, Input, Row, Text } from "@nextui-org/react";
+import { Card, Row, Text } from "@nextui-org/react";
 import React from "react";
 import ProfilePictureIcon from "./ProfilePictureIcon";
 

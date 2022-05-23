@@ -1,4 +1,5 @@
 import { Row, Input, Switch, Text } from "@nextui-org/react";
+import { Formik } from "formik";
 import ProfilePicture from "./ProfilePicture";
 
 export default function Inputs({ newUserSwaper, setNewUserSwaper }) {
