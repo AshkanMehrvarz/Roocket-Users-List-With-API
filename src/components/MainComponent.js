@@ -13,7 +13,7 @@ export default function MainComponent() {
     setTimeout(() => {
       setLoading(false);
       clearInterval(interval);
-    }, 100);
+    }, 3000);
   }, []);
 
   return <div>{loading ? <Hero loading={loadingCount} /> : <UsersList />}</div>;
