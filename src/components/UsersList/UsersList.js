@@ -1,10 +1,11 @@
-import { Button, Container, Row, Spacer } from "@nextui-org/react";
+import { Container } from "@nextui-org/react";
 import React from "react";
+import Header from "./Header";
 
 export default function UsersList() {
   return (
     <Container>
-      <div>hi</div>
+      <Header />
     </Container>
   );
 }

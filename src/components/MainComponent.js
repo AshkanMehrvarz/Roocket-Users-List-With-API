@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from "./Hero";
-import UsersList from "./UsersList";
+import UsersList from "./UsersList/UsersList";
 
 export default function MainComponent() {
   const [loading, setLoading] = React.useState(true);
@@ -13,7 +13,7 @@ export default function MainComponent() {
     setTimeout(() => {
       setLoading(false);
       clearInterval(interval);
-    }, 3000);
+    }, 100);
   }, []);
 
   return <div>{loading ? <Hero loading={loadingCount} /> : <UsersList />}</div>;
