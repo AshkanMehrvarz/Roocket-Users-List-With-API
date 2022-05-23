@@ -2,8 +2,6 @@ import React from "react";
 import { Modal, Button, Text, Loading } from "@nextui-org/react";
 import Inputs from "./Inputs";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 export default function AddUserModal({
   addUserModalStatusSwaper,
@@ -46,7 +44,7 @@ export default function AddUserModal({
         open={addUserModalStatusSwaper}
         onClose={closeModalHandler}>
         <Modal.Header>
-          <Text size={18} weight='bold'>
+          <Text size={24} weight='bold'>
             Add New User
           </Text>
         </Modal.Header>

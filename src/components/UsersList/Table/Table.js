@@ -1,14 +1,27 @@
-import { Table, Row, Col, Tooltip, User, Text } from "@nextui-org/react";
+import { Table, Row, Col, User, Text } from "@nextui-org/react";
 import { StyledBadge } from "./StyledBadge";
 import { IconButton } from "./IconButton";
-import { EyeIcon } from "./EyeIcon";
 import { EditIcon } from "./EditIcon";
 import { DeleteIcon } from "./DeleteIcon";
 import axios from "axios";
 import React from "react";
+import EditUserModal from "../EditUserModal/EditUserModal";
 
 export default function App() {
   const [users, setUsers] = React.useState([]);
+  const [editUserModalStatus, setEditUserModalStatus] = React.useState(false);
+  const [userId, setUserId] = React.useState();
+
+  const editUserHandler = (user) => {
+    setUserId(users.indexOf(user));
+    setEditUserModalStatus(true);
+  };
+
+  const deleteUserHandler = async (user) => {
+    axios.delete(
+      `https://6285fd666b6c317d5ba7886d.endapi.io/user_liust/${user.id}`
+    );
+  };
   const columns = [
     { name: "NAME", uid: "name" },
     { name: "EMAIL", uid: "email" },
@@ -48,13 +61,12 @@ export default function App() {
         return (
           <Row justify='center' align='center'>
             <Col css={{ d: "flex" }}>
-              <IconButton onClick={() => console.log("Edit user", user.id)}>
+              <IconButton onClick={() => editUserHandler(user)}>
                 <EditIcon size={20} fill='#979797' />
               </IconButton>
             </Col>
             <Col css={{ d: "flex" }}>
-              {() => console.log("Delete user", user.id)}
-              <IconButton>
+              <IconButton onClick={() => deleteUserHandler(user)}>
                 <DeleteIcon size={20} fill='#FF0080' />
               </IconButton>
             </Col>
@@ -66,6 +78,12 @@ export default function App() {
   };
   return (
     <div style={{ marginTop: 25 }}>
+      <EditUserModal
+        editUserModalStatusSwaper={editUserModalStatus}
+        setEditUserModalStatusSwaper={setEditUserModalStatus}
+        userIdSwaper={userId}
+        usersSwaper={users}
+      />
       <Table
         bordered
         aria-label='Example table with custom cells'
